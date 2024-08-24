@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -15,11 +14,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	var story story.Story
-	r := json.NewDecoder(file)
-	err = r.Decode(&story)
+	storyy, err := story.DecodeToJson(file)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("%+v", story)
+	fmt.Printf("%+v", storyy)
 }
