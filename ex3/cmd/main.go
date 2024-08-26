@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
+	"net/http"
 	"os"
 	"story"
 )
@@ -19,4 +21,6 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("%+v", storyy)
+	h := story.NewStoryHandler(storyy)
+	log.Fatal(http.ListenAndServe(":8080", h))
 }
