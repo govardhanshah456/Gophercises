@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	jsonFilePath := flag.String("jsonFileName", "gopher", "na")
+	jsonFilePath := flag.String("jsonFileName", "gopher.json", "na")
 	flag.Parse()
 	file, err := os.Open(*jsonFilePath)
 	if err != nil {
